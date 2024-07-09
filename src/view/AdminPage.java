@@ -29,7 +29,6 @@ public class AdminPage extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 UserService userService = new UserService();
                 User user = new User();
-                user.setFullName(fullNameField.getText());
                 user.setUsername(usernameField.getText());
                 user.setPassword(new String(passwordField.getPassword()));
                 user.setIsAdmin(isAdminCheckBox.isSelected());

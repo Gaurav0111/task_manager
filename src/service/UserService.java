@@ -18,7 +18,6 @@ public class UserService {
             if (rs.next()) {
                 User user = new User();
                 user.setId(rs.getInt("id"));
-                user.setFullName(rs.getString("full_name"));
                 user.setUsername(rs.getString("username"));
                 user.setPassword(rs.getString("password"));
                 user.setIsAdmin(rs.getBoolean("is_admin"));
@@ -31,13 +30,17 @@ public class UserService {
     }
 
     public void addUser(User user) {
-        String query = "INSERT INTO users (full_name,username, password, is_admin) VALUES (?,?, ?, ?)";
+        String query = "INSERT INTO users (first_name, last_name, email, phone, username, password, is_admin, org_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection conn = DatabaseConnection.getConnection();
                 PreparedStatement pstmt = conn.prepareStatement(query)) {
-            pstmt.setString(1, user.getFullName());
-            pstmt.setString(2, user.getUsername());
-            pstmt.setString(3, user.getPassword());
-            pstmt.setBoolean(4, user.isAdmin());
+            pstmt.setString(1, user.getFirstName());
+            pstmt.setString(2, user.getLastName());
+            pstmt.setString(3, user.getEmail());
+            pstmt.setString(4, user.getPhone());
+            pstmt.setString(5, user.getUsername());
+            pstmt.setString(6, user.getPassword());
+            pstmt.setBoolean(7, user.isAdmin());
+            pstmt.setInt(8, user.getOrgId());
             pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

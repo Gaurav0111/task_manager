@@ -7,7 +7,7 @@ public class Task {
     private String status;
     private String owner;
 
-    // Getters and Setters
+
     public int getId() {
         return id;
     }

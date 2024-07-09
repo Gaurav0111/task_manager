@@ -1,11 +1,11 @@
 import util.DatabaseInitializer;
-import view.LoginPage;
+import view.RegisterPage;
 
 public class Main {
     public static void main(String[] args) {
         DatabaseInitializer.initialize();
 
-        LoginPage loginPage = new LoginPage();
-        loginPage.setVisible(true);
+        RegisterPage registerPage = new RegisterPage();
+        registerPage.setVisible(true);
     }
 }

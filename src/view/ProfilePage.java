@@ -15,9 +15,6 @@ public class ProfilePage extends JFrame {
         JPanel panel = new JPanel();
         add(panel);
         panel.setLayout(null);
-        JLabel fullName = new JLabel("Full Name: " + user.getFullName());
-        fullName.setBounds(10, 20, 150, 25);
-        panel.add(fullName);
 
         JLabel username = new JLabel("User Name: " + user.getUsername());
         username.setBounds(10, 50, 150, 25);
